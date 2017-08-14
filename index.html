@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> Map #1</title>
+	  <link rel="stylesheet" href="main.css"/>
+	  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+    </head>
+  <body>
+    <H1>Example</H1>
+	
+	<div id="map"></div>
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+	
+	<script>
+  //initialize the map         
+  var map = L.map('map').setView([55.67918143, 12.59149075], 14);
+  
+  
+  
+  //Create baselayer - tiles         
+  var backgroundMap = L.tileLayer('https://stamen-tiles-b.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg',{
+    attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 19
+    }
+  );
+ 
+  var center = L.marker([55.67918143, 12.59149075]).addTo(map);
+  
+  var popup = "City center";
+center.bindPopup(popup); 
+
+  //add a circle
+  var circle = L.circle([55.67918143, 12.59149075], 450, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.2
+  }).addTo(map); 
+
+  
+  backgroundMap.addTo(map);
+ 
+</script>
+  </body>
+</html>
+
+Map used
+https://stamen-tiles-b.a.ssl.fastly.net/watercolor
